@@ -1,21 +1,25 @@
-# shadcn/ui monorepo template
+# Blocktime
 
-This is a Vite monorepo template with shadcn/ui.
+A private, browser-based Minecraft playtime calculator. Select a Minecraft
+`logs` folder and the app reads `.log` and `.log.gz` files locally, detects play
+sessions, and calculates the total time played.
 
-## Adding components
-
-To add components to your app, run the following command at the root of your `web` app:
+## Local development
 
 ```bash
-pnpm dlx shadcn@latest add button -c apps/web
+pnpm install
+pnpm dev
 ```
 
-This will place the ui components in the `packages/ui/src/components` directory.
+## Production build
 
-## Using components
-
-To use the components in your app, import them from the `ui` package.
-
-```tsx
-import { Button } from "@workspace/ui/components/button";
+```bash
+pnpm build
 ```
+
+The web app is built to `apps/web/dist` with relative asset paths, so it works
+from a GitHub Pages project subpath. The included GitHub Actions workflow deploys
+that folder whenever the `main` branch is updated.
+
+To publish, choose **GitHub Actions** under **Settings → Pages → Build and
+deployment → Source** in the repository.
